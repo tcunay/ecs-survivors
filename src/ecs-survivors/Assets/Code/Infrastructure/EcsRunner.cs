@@ -1,4 +1,3 @@
-using System;
 using Code.Gameplay;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Time;

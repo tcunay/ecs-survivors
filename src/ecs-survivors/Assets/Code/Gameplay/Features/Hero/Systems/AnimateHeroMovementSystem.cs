@@ -8,13 +8,11 @@ namespace Code.Gameplay.Features.Hero.Systems
 
         public AnimateHeroMovementSystem(GameContext gameContext)
         {
-            _heroes = gameContext.GetGroup(GameMatcher.AllOf(
-                matchers: new[]
-                {
+            _heroes = gameContext.GetGroup(GameMatcher
+                .AllOf(
                     GameMatcher.HeroAnimator,
-                    GameMatcher.Hero,
-                }
-            ));
+                    GameMatcher.Hero
+                    ));
         }
         
         public void Execute()

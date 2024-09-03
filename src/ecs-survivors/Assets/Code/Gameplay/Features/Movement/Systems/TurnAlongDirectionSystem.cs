@@ -12,12 +12,10 @@ namespace Code.Gameplay.Features.Movement.Systems
         {
             _movers = gameContext.GetGroup(GameMatcher
                 .AllOf(
-                    matchers: new[]
-                    {
-                        GameMatcher.TurnedAlongDirection,
-                        GameMatcher.SpriteRenderer,
-                        GameMatcher.Direction,
-                    }));
+                    GameMatcher.TurnedAlongDirection,
+                    GameMatcher.SpriteRenderer,
+                    GameMatcher.Direction
+                ));
         }
         
         public void Execute()

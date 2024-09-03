@@ -10,11 +10,9 @@ namespace Code.Gameplay.Features.Movement.Systems
         {
             _transforms = gameContext.GetGroup(GameMatcher
                 .AllOf(
-                    matchers: new[]
-                    {
-                        GameMatcher.WorldPosition,
-                        GameMatcher.Transform,
-                    }));
+                    GameMatcher.WorldPosition,
+                    GameMatcher.Transform
+                ));
         }
         
         public void Execute()

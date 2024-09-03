@@ -14,13 +14,11 @@ namespace Code.Gameplay.Features.Movement.Systems
             _time = time;
             _movers = gameContext.GetGroup(GameMatcher
                 .AllOf(
-                    matchers: new[]
-                    {
-                        GameMatcher.WorldPosition,
-                        GameMatcher.Speed,
-                        GameMatcher.Direction,
-                        GameMatcher.Moving,
-                    }));
+                    GameMatcher.WorldPosition,
+                    GameMatcher.Speed,
+                    GameMatcher.Direction,
+                    GameMatcher.Moving
+                ));
         }
         
         public void Execute()

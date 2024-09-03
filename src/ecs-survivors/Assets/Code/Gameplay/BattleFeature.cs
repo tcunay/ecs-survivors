@@ -1,5 +1,6 @@
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Input;
@@ -15,6 +16,7 @@ namespace Code.Gameplay
             Add(new InputFeature(gameContext, inputService));
             Add(new MovementFeature(gameContext, timeService));
             Add(new HeroFeature(gameContext, cameraProvider));
+            Add(new EnemyFeature(gameContext));
         }
     }
 }
