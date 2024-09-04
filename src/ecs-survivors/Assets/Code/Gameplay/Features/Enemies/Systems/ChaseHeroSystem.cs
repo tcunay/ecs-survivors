@@ -2,17 +2,16 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Enemies.Systems
 {
-    public class FollowHeroSystem : IExecuteSystem, IInitializeSystem
+    public class ChaseHeroSystem : IExecuteSystem, IInitializeSystem
     {
-        private readonly IGroup<GameEntity> _followers;
+        private readonly IGroup<GameEntity> _chasers;
         private readonly IGroup<GameEntity> _heroes;
 
-        public FollowHeroSystem(GameContext gameContext)
+        public ChaseHeroSystem(GameContext gameContext)
         {
-            _followers = gameContext.GetGroup(GameMatcher
+            _chasers = gameContext.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.FollowingToHero,
-                    GameMatcher.Direction,
+                    GameMatcher.Enemy,
                     GameMatcher.WorldPosition
                 ));
 
@@ -25,7 +24,7 @@ namespace Code.Gameplay.Features.Enemies.Systems
 
         public void Initialize()
         {
-            foreach (GameEntity follower in _followers)
+            foreach (GameEntity follower in _chasers)
             {
                 follower.isMoving = true;
             }
@@ -35,9 +34,9 @@ namespace Code.Gameplay.Features.Enemies.Systems
         {
             foreach (GameEntity hero in _heroes)
             {
-                foreach (GameEntity follower in _followers)
+                foreach (GameEntity chaser in _chasers)
                 {
-                    follower.ReplaceDirection((hero.WorldPosition - follower.WorldPosition).normalized);
+                    chaser.ReplaceDirection((hero.WorldPosition - chaser.WorldPosition).normalized);
                 }
             }
         }
