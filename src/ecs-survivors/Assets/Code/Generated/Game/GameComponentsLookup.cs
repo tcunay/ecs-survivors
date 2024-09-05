@@ -12,7 +12,7 @@ public static class GameComponentsLookup {
     public const int SelfDestructTimer = 1;
     public const int View = 2;
     public const int Damage = 3;
-    public const int DamageTaken = 4;
+    public const int DamageTakenAnimator = 4;
     public const int Id = 5;
     public const int SpriteRenderer = 6;
     public const int Transform = 7;
@@ -44,7 +44,7 @@ public static class GameComponentsLookup {
         "SelfDestructTimer",
         "View",
         "Damage",
-        "DamageTaken",
+        "DamageTakenAnimator",
         "Id",
         "SpriteRenderer",
         "Transform",
@@ -75,7 +75,7 @@ public static class GameComponentsLookup {
         typeof(Code.Common.SelfDestructTimer),
         typeof(Code.Common.View),
         typeof(Code.Gameplay.Common.Damage),
-        typeof(Code.Gameplay.Common.DamageTakenComponent),
+        typeof(Code.Gameplay.Common.DamageTakenAnimatorComponent),
         typeof(Code.Gameplay.Common.Id),
         typeof(Code.Gameplay.Common.SpriteRendererComponent),
         typeof(Code.Gameplay.Common.TransformComponent),

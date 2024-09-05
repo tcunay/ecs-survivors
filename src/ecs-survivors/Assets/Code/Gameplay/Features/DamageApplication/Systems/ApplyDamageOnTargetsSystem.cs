@@ -28,9 +28,9 @@ namespace Code.Gameplay.Features.DamageApplication.Systems
                     {
                         target.ReplaceCurrentHP(target.CurrentHP - damageDealer.Damage);
 
-                        if (target.hasDamageTaken)
+                        if (target.hasDamageTakenAnimator)
                         {
-                            target.DamageTaken.PlayDamageTaken();
+                            target.DamageTakenAnimator.PlayDamageTaken();
                         }
                     }
                     
