@@ -19,6 +19,7 @@ namespace Code.Gameplay.Features.Hero.Registrars
                 .AddDirection(Vector2.zero)
                 .With(x => x.isHero = true)
                 .With(x => x.isTurnedAlongDirection = true)
+                .With(x => x.isMovementAvailable = true)
                 ;
         }
 
