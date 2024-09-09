@@ -43,6 +43,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .AddCollectTargetsTimer(0)
                     .AddTargetsBuffer(new List<int>(1))
                     .AddLayerMask(CollisionLayer.Hero.AsMask())
+                    .AddViewPath("Gameplay/Enemies/Goblins/Torch/goblin_torch_blue")
                     .With(x => x.isEnemy = true)
                     .With(x => x.isTurnedAlongDirection = true)
                     .With(x => x.isMovementAvailable = true)
