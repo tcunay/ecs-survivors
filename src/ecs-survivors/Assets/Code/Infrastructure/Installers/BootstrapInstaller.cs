@@ -3,6 +3,8 @@ using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.Enemies.Factory;
+using Code.Gameplay.Features.Hero.Factory;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
@@ -10,6 +12,7 @@ using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Loading;
 using Code.Infrastructure.Systems;
+using Code.Infrastructure.View.Factory;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -25,6 +28,7 @@ namespace Code.Infrastructure.Installers
       BindSystemFactory();
       BindContexts();
       BindGameplayServices();
+      BindGameplayFactories();
       BindCameraProvider();
     }
 
@@ -44,6 +48,13 @@ namespace Code.Infrastructure.Installers
     {
       Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
       Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
+    }
+    
+    private void BindGameplayFactories()
+    {
+      Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
+      Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
+      Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
     }
 
     private void BindInfrastructureServices()

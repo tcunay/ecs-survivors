@@ -11,11 +11,9 @@ GameObject:
   - component: {fileID: 8386491362069985314}
   - component: {fileID: -2241287277873108418}
   - component: {fileID: 8523358450211907527}
-  - component: {fileID: 7961309936911859994}
   - component: {fileID: 4726949887849260899}
   - component: {fileID: 6254942356930911151}
   - component: {fileID: 8180046952312521969}
-  - component: {fileID: 6331994945390992719}
   m_Layer: 6
   m_Name: hero
   m_TagString: Untagged
@@ -66,20 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e408276cae14947b231bffde2491398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7961309936911859994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468766153583341960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64885794a0a94f7a8f4e4e9cae6fa6e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityView: {fileID: 8523358450211907527}
-  Speed: 2
 --- !u!114 &4726949887849260899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,19 +105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityView: {fileID: 8523358450211907527}
   HeroAnimator: {fileID: -2241287277873108418}
---- !u!114 &6331994945390992719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468766153583341960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bed7c5966654b2a97c561a33bd0fea7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EntityView: {fileID: 8523358450211907527}
 --- !u!1 &1389770794421719611
 GameObject:
   m_ObjectHideFlags: 0
