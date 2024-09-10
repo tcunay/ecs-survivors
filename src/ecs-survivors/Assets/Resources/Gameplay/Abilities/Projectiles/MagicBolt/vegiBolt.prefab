@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3360128356117953061, guid: 02c1c61dae6b7e34d976ffa02368e391, type: 3}
       propertyPath: m_Name
-      value: magicBolt
+      value: vegiBolt
       objectReference: {fileID: 0}
     - target: {fileID: 5653278803542377902, guid: 02c1c61dae6b7e34d976ffa02368e391, type: 3}
       propertyPath: PoisonColor.r
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186230661049640603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eab6f243ddeb415b8407eb23f3ee56b0, type: 3}
+  m_Script: {fileID: 11500000, guid: c29266eb6b40421690501b28481f3520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EntityView: {fileID: 6295621220853740386}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1186230661049640603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e160ad6dc2fd4ff9bc772c10046168ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e408276cae14947b231bffde2491398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6379854047145016537 stripped
