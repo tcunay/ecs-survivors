@@ -11,6 +11,8 @@ namespace Code.Gameplay.Features.Armaments.Factory
 {
     public class ArmamentFactory : IArmamentFactory
     {
+        private const int TargetsBufferSize = 16;
+        
         private readonly IIdentifierService _identifiers;
         private readonly IStaticDataService _staticDataService;
 
@@ -33,7 +35,8 @@ namespace Code.Gameplay.Features.Armaments.Factory
                 .AddSpeed(setup.Speed)
                 .AddDamage(1)
                 .AddRadius(setup.ContactRadius)
-                .AddTargetsBuffer(new List<int>(16))
+                .AddTargetsBuffer(new List<int>(TargetsBufferSize))
+                .AddProcessedTargets(new List<int>(TargetsBufferSize))
                 .AddTargetLimit(setup.Pierce)
                 .AddLayerMask(CollisionLayer.Enemy.AsMask())
                 .With(x => x.isMovementAvailable = true)
