@@ -36,7 +36,7 @@ namespace Code.Gameplay.Features.Armaments.Factory
                 .AddDamage(1)
                 .AddRadius(setup.ContactRadius)
                 .AddTargetsBuffer(new List<int>(TargetsBufferSize))
-                .AddProcessedTargets(new List<int>(TargetsBufferSize))
+                .AddProcessedTargets(new HashSet<int>(TargetsBufferSize))
                 .AddTargetLimit(setup.Pierce)
                 .AddLayerMask(CollisionLayer.Enemy.AsMask())
                 .With(x => x.isMovementAvailable = true)
