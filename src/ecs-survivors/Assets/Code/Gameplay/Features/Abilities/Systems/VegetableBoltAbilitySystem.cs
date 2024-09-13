@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Abilities.Configs;
-using Code.Gameplay.Features.Abilities.Factory;
 using Code.Gameplay.Features.Armaments.Factory;
 using Code.Gameplay.Features.Cooldowns;
 using Code.Gameplay.StaticData;
@@ -50,7 +49,9 @@ namespace Code.Gameplay.Features.Abilities.Systems
                     continue;
                 }
                 
-                _armamentFactory.CreateVegetableBolt(1, hero.WorldPosition)
+                _armamentFactory
+                    .CreateVegetableBolt(1, hero.WorldPosition)
+                    .AddProducerId(hero.Id)
                     .With(x => x.isMoving = true)
                     .ReplaceDirection((FirstAvailableTarget().WorldPosition - hero.WorldPosition).normalized);
                 
