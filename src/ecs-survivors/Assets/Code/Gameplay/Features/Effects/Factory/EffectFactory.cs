@@ -18,8 +18,6 @@ namespace Code.Gameplay.Features.Effects.Factory
         {
             switch (setup.EffectTypeId)
             {
-                case EffectTypeId.Unknown:
-                    break;
                 case EffectTypeId.Damage:
                     return CreateDamage(producerId, targetId, setup.Value);
             }

@@ -34,7 +34,7 @@ namespace Code.Gameplay.Features.Enemies.Systems
             _heroes = game.GetGroup(GameMatcher.AllOf(GameMatcher.Hero, GameMatcher.WorldPosition));
         }
 
-        public void Execute()
+        public void Execute() 
         {
             foreach (GameEntity hero in _heroes)
             foreach (GameEntity timer in _entities)
