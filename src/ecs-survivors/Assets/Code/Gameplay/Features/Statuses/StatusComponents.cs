@@ -12,4 +12,5 @@ namespace Code.Gameplay.Features.Statuses
     
     [Game] public class Applied : IComponent { }
     [Game] public class UnApplied : IComponent { }
+    [Game] public class Poison : IComponent { }
 }

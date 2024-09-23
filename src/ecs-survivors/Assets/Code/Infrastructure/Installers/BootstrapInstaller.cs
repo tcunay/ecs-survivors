@@ -41,7 +41,7 @@ namespace Code.Infrastructure.Installers
 
     private void BindEntityIndices()
     {
-      Container.BindInterfacesAndSelfTo<GameEntityIndices>();
+      Container.BindInterfacesAndSelfTo<GameEntityIndices>().AsSingle();
     }
 
     private void BindContexts()

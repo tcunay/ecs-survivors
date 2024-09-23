@@ -44,7 +44,8 @@ namespace Code.Gameplay.Features.Statuses.Factory
                 .AddEffectValue(setup.Value)
                 .AddProducerId(producerId)
                 .AddTargetId(targetId)
-                .With(x => x.isStatus = true);
+                .With(x => x.isStatus = true)
+                .With(x => x.isPoison = true);
 
         }
     }
