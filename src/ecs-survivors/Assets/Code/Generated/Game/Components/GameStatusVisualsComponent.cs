@@ -34,10 +34,10 @@ public sealed partial class GameMatcher {
 public partial class GameEntity {
 
     public Code.Gameplay.Common.StatusVisualsComponent statusVisuals { get { return (Code.Gameplay.Common.StatusVisualsComponent)GetComponent(GameComponentsLookup.StatusVisuals); } }
-    public Code.Gameplay.Common.Visuals.IStatusVisuals StatusVisuals { get { return statusVisuals.Value; } }
+    public Code.Gameplay.Common.Visuals.StatusVisuals.IStatusVisuals StatusVisuals { get { return statusVisuals.Value; } }
     public bool hasStatusVisuals { get { return HasComponent(GameComponentsLookup.StatusVisuals); } }
 
-    public GameEntity AddStatusVisuals(Code.Gameplay.Common.Visuals.IStatusVisuals newValue) {
+    public GameEntity AddStatusVisuals(Code.Gameplay.Common.Visuals.StatusVisuals.IStatusVisuals newValue) {
         var index = GameComponentsLookup.StatusVisuals;
         var component = (Code.Gameplay.Common.StatusVisualsComponent)CreateComponent(index, typeof(Code.Gameplay.Common.StatusVisualsComponent));
         component.Value = newValue;
@@ -45,7 +45,7 @@ public partial class GameEntity {
         return this;
     }
 
-    public GameEntity ReplaceStatusVisuals(Code.Gameplay.Common.Visuals.IStatusVisuals newValue) {
+    public GameEntity ReplaceStatusVisuals(Code.Gameplay.Common.Visuals.StatusVisuals.IStatusVisuals newValue) {
         var index = GameComponentsLookup.StatusVisuals;
         var component = (Code.Gameplay.Common.StatusVisualsComponent)CreateComponent(index, typeof(Code.Gameplay.Common.StatusVisualsComponent));
         component.Value = newValue;
