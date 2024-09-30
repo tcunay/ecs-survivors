@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityId: 2
   Levels:
-  - Cooldown: 1
+  - Cooldown: 5
     ViewPrefab: {fileID: 6295621220853740386, guid: 92dc63e318e181a4a9587ecf7216ee46, type: 3}
     EffectSetups:
     - EffectTypeId: 1
       Value: 1
     StatusSetups: []
     ProjectileSetup:
-      ProjectileCount: 3
+      ProjectileCount: 5
       Speed: 2
       Pierce: 0
       ContactRadius: 0.1
