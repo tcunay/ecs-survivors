@@ -12,6 +12,9 @@ namespace Code.Gameplay.Features.Statuses
             Add(systems.Create<PeriodicDamageStatusSystem>());
             Add(systems.Create<ApplyFreezeStatusSystem>());
             
+            Add(systems.Create<AddSpeedUpStatusOnEnemyDeathSystem>());
+            Add(systems.Create<ApplySpeedUpStatusSystem>());
+            
             Add(systems.Create<StatusVisualsFeature>());
              
             Add(systems.Create<CleanupUnappliedStatusLinkedChanges>());

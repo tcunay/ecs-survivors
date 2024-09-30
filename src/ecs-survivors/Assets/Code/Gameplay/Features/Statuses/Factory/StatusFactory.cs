@@ -37,6 +37,9 @@ namespace Code.Gameplay.Features.Statuses.Factory
 
                 case StatusTypeId.Freeze:
                     return CreateFreeze(producerId, targetId, setup);
+                
+                case StatusTypeId.SpeedUp:
+                    return CreateSpeedUp(producerId, targetId, setup);
 
                 case StatusTypeId.Unknown:
                 default:
@@ -46,18 +49,25 @@ namespace Code.Gameplay.Features.Statuses.Factory
 
         private GameEntity CreatePoison(int producerId, int targetId, StatusSetup setup)
         {
-            return CreateEntity.Empty()
-                .AddId(_identifierService.Next())
-                .AddStatusTypeId(setup.StatusTypeId)
-                .AddEffectValue(setup.Value)
-                .AddProducerId(producerId)
-                .AddTargetId(targetId)
-                .With(x => x.isStatus = true)
+            return CreateStatusBase(producerId, targetId, setup)
                 .With(x => x.isPoison = true);
 
         }
-        
+
         private GameEntity CreateFreeze(int producerId, int targetId, StatusSetup setup)
+        {
+            return CreateStatusBase(producerId, targetId, setup)
+                .With(x => x.isFreeze = true);
+
+        }
+        
+        private GameEntity CreateSpeedUp(int producerId, int targetId, StatusSetup setup)
+        {
+            return CreateStatusBase(producerId, targetId, setup)
+                .With(x => x.isSpeedUp = true);
+        }
+        
+        private GameEntity CreateStatusBase(int producerId, int targetId, StatusSetup setup)
         {
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())
@@ -65,9 +75,7 @@ namespace Code.Gameplay.Features.Statuses.Factory
                 .AddEffectValue(setup.Value)
                 .AddProducerId(producerId)
                 .AddTargetId(targetId)
-                .With(x => x.isStatus = true)
-                .With(x => x.isFreeze = true);
-
+                .With(x => x.isStatus = true);
         }
     }
 }

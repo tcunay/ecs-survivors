@@ -61,23 +61,24 @@ public static class GameComponentsLookup {
     public const int Freeze = 50;
     public const int Period = 51;
     public const int Poison = 52;
-    public const int Status = 53;
-    public const int StatusTypeId = 54;
-    public const int TimeLeft = 55;
-    public const int TimeSinceLastTick = 56;
-    public const int UnApplied = 57;
-    public const int CollectingTargetsContinuously = 58;
-    public const int CollectTargetsInterval = 59;
-    public const int CollectTargetsTimer = 60;
-    public const int LayerMask = 61;
-    public const int ProcessedTargets = 62;
-    public const int Radius = 63;
-    public const int ReadyToCollectTargets = 64;
-    public const int TargetsBuffer = 65;
-    public const int AxisInput = 66;
-    public const int Input = 67;
+    public const int SpeedUp = 53;
+    public const int Status = 54;
+    public const int StatusTypeId = 55;
+    public const int TimeLeft = 56;
+    public const int TimeSinceLastTick = 57;
+    public const int UnApplied = 58;
+    public const int CollectingTargetsContinuously = 59;
+    public const int CollectTargetsInterval = 60;
+    public const int CollectTargetsTimer = 61;
+    public const int LayerMask = 62;
+    public const int ProcessedTargets = 63;
+    public const int Radius = 64;
+    public const int ReadyToCollectTargets = 65;
+    public const int TargetsBuffer = 66;
+    public const int AxisInput = 67;
+    public const int Input = 68;
 
-    public const int TotalComponents = 68;
+    public const int TotalComponents = 69;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -133,6 +134,7 @@ public static class GameComponentsLookup {
         "Freeze",
         "Period",
         "Poison",
+        "SpeedUp",
         "Status",
         "StatusTypeId",
         "TimeLeft",
@@ -204,6 +206,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Statuses.Freeze),
         typeof(Code.Gameplay.Features.Statuses.Period),
         typeof(Code.Gameplay.Features.Statuses.Poison),
+        typeof(Code.Gameplay.Features.Statuses.SpeedUp),
         typeof(Code.Gameplay.Features.Statuses.Status),
         typeof(Code.Gameplay.Features.Statuses.StatusTypeIdComponent),
         typeof(Code.Gameplay.Features.Statuses.TimeLeft),
