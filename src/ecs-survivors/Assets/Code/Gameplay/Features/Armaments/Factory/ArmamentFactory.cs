@@ -41,8 +41,32 @@ namespace Code.Gameplay.Features.Armaments.Factory
             return CreateProjectileEntityBase(at, abilityLevel, setup)
                 .AddParentAbility(AbilityId.OrbitingMushroom)
                 .AddOrbitPhase(phase)
-                .AddOrbitRadius(setup.OrbitRadius);
+                .AddOrbitRadius(setup.OrbitRadius)
+                ;
+        }
 
+        public GameEntity CreateEffectAura(AbilityId parentAbility, int producerId, int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.GarlicAura, level);
+            AuraSetup setup = abilityLevel.AuraSetup;
+
+            return CreateEntity.Empty()
+                .AddId(_identifiers.Next())
+                .AddParentAbility(parentAbility)
+                .AddViewPrefab(abilityLevel.ViewPrefab)
+                .AddLayerMask(CollisionLayer.Enemy.AsMask())
+                .AddRadius(setup.Raduis)
+                .AddCollectTargetsInterval(setup.Interval)
+                .AddCollectTargetsTimer(0)
+                .With(x => x.AddEffectSetups(abilityLevel.EffectSetups),
+                    when: !abilityLevel.EffectSetups.IsNullOrEmpty())
+                .With(x => x.AddStatusSetups(abilityLevel.StatusSetups),
+                    when: !abilityLevel.StatusSetups.IsNullOrEmpty())
+                .AddTargetsBuffer(new List<int>(TargetsBufferSize))
+                .AddProducerId(producerId)
+                .AddWorldPosition(Vector3.zero)
+                .With(x => x.isFollowingProducer = true)
+                ;
         }
 
         private GameEntity CreateProjectileEntityBase(Vector3 at, AbilityLevel abilityLevel, ProjectileSetup setup)
@@ -63,7 +87,8 @@ namespace Code.Gameplay.Features.Armaments.Factory
                 .With(x => x.isMovementAvailable = true)
                 .With(x => x.isReadyToCollectTargets = true)
                 .With(x => x.isCollectingTargetsContinuously = true)
-                .AddSelfDestructTimer(setup.LifeTime);
+                .AddSelfDestructTimer(setup.LifeTime)
+                ;
         }
     }
 }
