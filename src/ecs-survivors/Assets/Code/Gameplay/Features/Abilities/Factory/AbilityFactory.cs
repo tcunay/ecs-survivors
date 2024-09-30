@@ -29,5 +29,17 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .With(x => x.isVegetableBoltAbility = true)
                 .PutCooldown(); 
         }
+        
+        public GameEntity CreateOrbitingMushroomAbility(int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.OrbitingMushroom, level);
+
+            return CreateEntity.Empty()
+                .AddId(_identifiers.Next())
+                .AddAbilityId(AbilityId.OrbitingMushroom)
+                .AddCooldown(abilityLevel.Cooldown)
+                .With(x => x.isOrbitingMushroomAbility = true)
+                .PutCooldown(); 
+        }
     }
 }
