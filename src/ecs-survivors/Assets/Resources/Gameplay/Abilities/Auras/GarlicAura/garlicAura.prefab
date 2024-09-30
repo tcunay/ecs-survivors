@@ -9713,6 +9713,7 @@ GameObject:
   - component: {fileID: 7897260696194773655}
   - component: {fileID: 8915021572750791253}
   - component: {fileID: 2020981839733446257}
+  - component: {fileID: 2347259120234635328}
   m_Layer: 0
   m_Name: garlicAura
   m_TagString: Untagged
@@ -9761,3 +9762,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityView: {fileID: 8915021572750791253}
+--- !u!114 &2347259120234635328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783522936459097793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64fd736c3c784f62bb99d01b68078e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityView: {fileID: 8915021572750791253}
+  Container: {fileID: 5444044905996140599}
