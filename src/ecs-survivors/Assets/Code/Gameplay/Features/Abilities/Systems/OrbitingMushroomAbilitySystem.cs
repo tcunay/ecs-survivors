@@ -39,11 +39,6 @@ namespace Code.Gameplay.Features.Abilities.Systems
             foreach (GameEntity ability  in _abilities.GetEntities(_buffer))
             foreach (GameEntity hero in _heroes)
             {
-                _armamentFactory
-                    .CreateVegetableBolt(1, hero.WorldPosition)
-                    .AddProducerId(hero.Id)
-                    .With(x => x.isMoving = true);
-                
                 AbilityLevel abilityLevel = _staticDataService
                     .GetAbilityLevel(AbilityId.OrbitingMushroom, 1);
 

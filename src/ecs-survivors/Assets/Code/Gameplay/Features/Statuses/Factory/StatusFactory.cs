@@ -1,6 +1,7 @@
 using System;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.Enchants;
 using Code.Infrastructure.Identifiers;
 
 namespace Code.Gameplay.Features.Statuses.Factory
@@ -40,6 +41,9 @@ namespace Code.Gameplay.Features.Statuses.Factory
                 
                 case StatusTypeId.SpeedUp:
                     return CreateSpeedUp(producerId, targetId, setup);
+                
+                case StatusTypeId.PoisonEnchant:
+                    return CreatePoisonEnchant(producerId, targetId, setup);
 
                 case StatusTypeId.Unknown:
                 default:
@@ -65,6 +69,13 @@ namespace Code.Gameplay.Features.Statuses.Factory
         {
             return CreateStatusBase(producerId, targetId, setup)
                 .With(x => x.isSpeedUp = true);
+        }
+        
+        private GameEntity CreatePoisonEnchant(int producerId, int targetId, StatusSetup setup)
+        {
+            return CreateStatusBase(producerId, targetId, setup)
+                .AddEnchantTypeId(EnchantTypeId.PoisonArmaments)
+                .With(x => x.isPoisonEnchant = true);
         }
         
         private GameEntity CreateStatusBase(int producerId, int targetId, StatusSetup setup)
