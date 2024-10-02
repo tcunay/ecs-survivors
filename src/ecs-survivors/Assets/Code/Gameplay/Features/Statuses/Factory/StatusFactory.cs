@@ -44,6 +44,9 @@ namespace Code.Gameplay.Features.Statuses.Factory
                 
                 case StatusTypeId.PoisonEnchant:
                     return CreatePoisonEnchant(producerId, targetId, setup);
+                
+                case StatusTypeId.ExplosiveEnchant:
+                    return CreateExplosiveEnchant(producerId, targetId, setup);
 
                 case StatusTypeId.Unknown:
                 default:
@@ -76,6 +79,13 @@ namespace Code.Gameplay.Features.Statuses.Factory
             return CreateStatusBase(producerId, targetId, setup)
                 .AddEnchantTypeId(EnchantTypeId.PoisonArmaments)
                 .With(x => x.isPoisonEnchant = true);
+        }
+        
+        private GameEntity CreateExplosiveEnchant(int producerId, int targetId, StatusSetup setup)
+        {
+            return CreateStatusBase(producerId, targetId, setup)
+                .AddEnchantTypeId(EnchantTypeId.ExplosiveArmaments)
+                .With(x => x.isExplosiveEnchant = true);
         }
         
         private GameEntity CreateStatusBase(int producerId, int targetId, StatusSetup setup)

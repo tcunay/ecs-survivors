@@ -7,6 +7,6 @@ namespace Code.Gameplay.Features.Statuses
         Freeze = 2,
         SpeedUp = 3,
         PoisonEnchant = 4,
-        
+        ExplosiveEnchant = 5,
     }
 }
