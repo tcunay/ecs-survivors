@@ -4,6 +4,8 @@ using System.Linq;
 using Code.Gameplay.Features.Abilities;
 using Code.Gameplay.Features.Abilities.Configs;
 using Code.Gameplay.Features.Enchants;
+using Code.Gameplay.Features.Loot;
+using Code.Gameplay.Features.Loot.Configs;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -12,19 +14,29 @@ namespace Code.Gameplay.StaticData
   {
     private Dictionary<AbilityId, AbilityConfig> _abilityById;
     private Dictionary<EnchantTypeId, EnchantConfig> _enchantById;
+    private Dictionary<LootTypeId, LootConfig> _lootById;
 
     public void LoadAll()
     {
       LoadAbilities();
       LoadEnchants();
+      LoadLoots();
     }
-
+    
     public AbilityConfig GetAbilityConfig(AbilityId abilityId)
     {
       if (_abilityById.TryGetValue(abilityId, out AbilityConfig config))
         return config;
 
       throw new Exception($"Ability config for {abilityId} was not found");
+    }
+    
+    public LootConfig GetLootConfig(LootTypeId lootTypeId)
+    {
+      if (_lootById.TryGetValue(lootTypeId, out LootConfig config))
+        return config;
+
+      throw new Exception($"Loot config for {lootTypeId} was not found");
     }
     
     public EnchantConfig GetEnchantConfig(EnchantTypeId enchantTypeId)
@@ -60,5 +72,13 @@ namespace Code.Gameplay.StaticData
         .LoadAll<EnchantConfig>("Configs/Enchants")
         .ToDictionary(x => x.TypeId, x => x);
     }
+    
+    private void LoadLoots()
+    {
+      _lootById = Resources
+        .LoadAll<LootConfig>("Configs/Loot")
+        .ToDictionary(x => x.TypeId, x => x);
+    }
+
   }
 }

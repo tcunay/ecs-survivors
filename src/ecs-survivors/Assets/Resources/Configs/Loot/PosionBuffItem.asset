@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979dd216a2204dddac4dd2cb6697dd80, type: 3}
+  m_Name: PosionBuffItem
+  m_EditorClassIdentifier: 
+  TypeId: 3
+  Experience: 0
+  ViewPrefab: {fileID: 6844094958165132529, guid: 712eaec4aeaf6974ebee24c87056bd01, type: 3}
+  EffectSetups: []
+  StatusSetups:
+  - StatusTypeId: 4
+    Value: 0
+    Duration: 20
+    Period: 0
