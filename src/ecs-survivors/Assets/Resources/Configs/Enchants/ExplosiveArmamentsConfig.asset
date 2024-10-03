@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3135e1a4f674c8eb72ecc1440895681, type: 3}
   m_Name: ExplosiveArmamentsConfig
   m_EditorClassIdentifier: 
-  TypeId: 0
+  TypeId: 2
   EffectSetups:
   - EffectTypeId: 1
     Value: 3
