@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityId: 3
   Levels:
-  - Cooldown: 5
+  - Icon: {fileID: 21300000, guid: 966ff550585ec504896a28b55fd7281c, type: 3}
+    Description: Mushroom description
+    Cooldown: 5
     ViewPrefab: {fileID: 6295621220853740386, guid: 92dc63e318e181a4a9587ecf7216ee46, type: 3}
     EffectSetups:
     - EffectTypeId: 1

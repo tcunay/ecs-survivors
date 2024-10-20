@@ -6,6 +6,7 @@ namespace Code.Gameplay.Features.LevelUp
     public class LevelUpComponents
     {
         [Game] public class ExperienceMeterComponent : IComponent { public ExperienceMeter Value; }
+        [Game] public class LevelUp : IComponent { }
         
     }
 }

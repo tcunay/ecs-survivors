@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityId: 2
   Levels:
-  - Cooldown: 0
+  - Icon: {fileID: 21300000, guid: 74e3aa8890b1b2143a58e7e253016600, type: 3}
+    Description: Increases odour stunrate
+    Cooldown: 0
     ViewPrefab: {fileID: 8915021572750791253, guid: c4c8cf39ebe3672468c50bd2fedcd936, type: 3}
     EffectSetups: []
     StatusSetups:

@@ -28,13 +28,13 @@ namespace Code.Gameplay.Features.Enemies.Systems
                 LootTypeId lootType = LootTypeId.Unknown;
                 
                 if (Random.Range(0, 1f) <= 0.15)
+                    lootType = LootTypeId.ExpGem;
+                else if (Random.Range(0, 1f) <= 0.15)
                     lootType = LootTypeId.HealingItem;
                 else if (Random.Range(0, 1f) <= 0.15)
                     lootType = LootTypeId.PoisonEnchantItem;
                 else if (Random.Range(0, 1f) <= 0.15)
                     lootType = LootTypeId.ExplosionEnchantItem;
-                else if (Random.Range(0, 1f) <= 0.15)
-                    lootType = LootTypeId.ExpGem;
                     
                     
                 if (lootType != LootTypeId.Unknown)

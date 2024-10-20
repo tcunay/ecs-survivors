@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Abilities.Configs;
+using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Features.Armaments.Factory;
 using Code.Gameplay.Features.Cooldowns;
 using Code.Gameplay.StaticData;
@@ -15,14 +16,20 @@ namespace Code.Gameplay.Features.Abilities.Systems
         private readonly  List<GameEntity> _buffer = new(1);
         private readonly IStaticDataService _staticDataService;
         private readonly IArmamentFactory _armamentFactory;
+        private readonly IAbilityUpgradeService _abilityUpgradeService;
+        
         private readonly IGroup<GameEntity> _abilities;
         private readonly IGroup<GameEntity> _heroes;
         private readonly IGroup<GameEntity> _enemies;
 
-        public VegetableBoltAbilitySystem(GameContext game, IStaticDataService staticDataService, IArmamentFactory armamentFactory)
+        public VegetableBoltAbilitySystem(GameContext game,
+            IStaticDataService staticDataService,
+            IArmamentFactory armamentFactory,
+            IAbilityUpgradeService abilityUpgradeService)
         {
             _staticDataService = staticDataService;
             _armamentFactory = armamentFactory;
+            _abilityUpgradeService = abilityUpgradeService;
             _abilities = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.VegetableBoltAbility,
@@ -48,15 +55,17 @@ namespace Code.Gameplay.Features.Abilities.Systems
                 {
                     continue;
                 }
+
+                int level = _abilityUpgradeService.GetAbilityLevel(AbilityId.VegetableBolt);
                 
                 _armamentFactory
-                    .CreateVegetableBolt(1, hero.WorldPosition)
+                    .CreateVegetableBolt(level, hero.WorldPosition)
                     .AddProducerId(hero.Id)
                     .With(x => x.isMoving = true)
                     .ReplaceDirection((FirstAvailableTarget().WorldPosition - hero.WorldPosition).normalized);
                 
                 AbilityLevel abilityLevel = _staticDataService
-                    .GetAbilityLevel(AbilityId.VegetableBolt, 1);
+                    .GetAbilityLevel(AbilityId.VegetableBolt, level);
                 
                 ability.PutCooldown(abilityLevel.Cooldown);
             }

@@ -27,8 +27,6 @@ namespace Code.Gameplay.Features.Enchants.Behaviours
                 return;
             }
             
-            Debug.Log($"Add Enchant = {typeId}");
-            
             Enchant enchant = _factory.CreateEnchant(EnchantLayout, typeId);
 
             _enchants.Add(enchant);
@@ -40,7 +38,6 @@ namespace Code.Gameplay.Features.Enchants.Behaviours
 
             if (enchant != null)
             {
-                Debug.Log($"Remove Enchant = {typeId}");
                 _enchants.Remove(enchant);
                 Destroy(enchant.gameObject);
             }
