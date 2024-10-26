@@ -23,8 +23,12 @@ using Code.Gameplay.Windows;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Loading;
+using Code.Infrastructure.States.Factory;
+using Code.Infrastructure.States.GameStates;
+using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View.Factory;
+using Code.Progress.Provider;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -45,6 +49,36 @@ namespace Code.Infrastructure.Installers
       BindUIFactories();
       BindCameraProvider();
       BindEntityIndices();
+      BindStateMachine();
+      BindStateFactory();
+      BindGameStates();
+      BindProgressServices();
+    }
+
+    private void BindGameStates()
+    {
+      Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
+      Container.BindInterfacesAndSelfTo<InitializeProgressState>().AsSingle();
+      Container.BindInterfacesAndSelfTo<LoadingHomeScreenState>().AsSingle();
+      Container.BindInterfacesAndSelfTo<HomeScreenState>().AsSingle();
+      Container.BindInterfacesAndSelfTo<LoadingBattleState>().AsSingle();
+      Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
+      Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
+    }
+    
+    private void BindProgressServices()
+    {
+      Container.Bind<IProgressProvider>().To<ProgressProvider>().AsSingle();
+    }
+
+    private void BindStateMachine()
+    {
+      Container.BindInterfacesTo<GameStateMachine>().AsSingle();
+    }
+    
+    private void BindStateFactory()
+    {
+      Container.BindInterfacesTo<StateFactory>().AsSingle();
     }
 
     private void BindEntityIndices()
@@ -129,8 +163,7 @@ namespace Code.Infrastructure.Installers
 
     public void Initialize()
     {
-      Container.Resolve<IStaticDataService>().LoadAll();
-      Container.Resolve<ISceneLoader>().LoadScene(Scenes.Meadow);
+      Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
     }
   }
 }
