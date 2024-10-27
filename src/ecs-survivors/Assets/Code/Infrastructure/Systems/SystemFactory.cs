@@ -16,6 +16,6 @@ namespace Code.Infrastructure.Systems
             _container.Instantiate<T>();
         
         public T Create<T>(params object[] args) where T : ISystem => 
-            _container.Instantiate<T>();
+            _container.Instantiate<T>(args);
     }
 }

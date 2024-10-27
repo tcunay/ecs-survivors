@@ -7,17 +7,17 @@ namespace Code.Gameplay.Input.Systems
     public class EmitInputSystem : IExecuteSystem
     {
         private readonly IInputService _inputService;
-        private readonly IGroup<GameEntity> _inputs;
+        private readonly IGroup<InputEntity> _inputs;
 
-        public EmitInputSystem(GameContext gameContext, IInputService inputService)
+        public EmitInputSystem(InputContext inputContext, IInputService inputService)
         {
             _inputService = inputService;
-            _inputs = gameContext.GetGroup(GameMatcher.Input);
+            _inputs = inputContext.GetGroup(InputMatcher.Input);
         }
         
         public void Execute()
         {
-            foreach (GameEntity input in _inputs)
+            foreach (InputEntity input in _inputs)
             {
                 if (_inputService.HasAxisInput())
                     input.ReplaceAxisInput(new Vector2(_inputService.GetHorizontalAxis(),
