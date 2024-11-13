@@ -13,6 +13,8 @@ namespace Code.Meta
             Add(systems.Create<EmitTickSystem>(MetaConstants.SimulationTickSeconds));
 
             Add(systems.Create<SimulationFeature>());
+            Add(systems.Create<HomeUIFeature>());
+            
             Add(systems.Create<PeriodicallySaveProgressSystem>(MetaConstants.SaveProgressPeriodSeconds));
 
             Add(systems.Create<CleanupTickSystem>());

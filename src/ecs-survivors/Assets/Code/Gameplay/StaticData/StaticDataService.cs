@@ -10,6 +10,7 @@ using Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Configs;
 using Code.Meta.Features.AfkGain.Configs;
+using Code.Meta.UI.Shop.Items;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -20,6 +21,7 @@ namespace Code.Gameplay.StaticData
     private Dictionary<EnchantTypeId, EnchantConfig> _enchantById;
     private Dictionary<LootTypeId, LootConfig> _lootById;
     private Dictionary<WindowId, GameObject> _windowPrefabsById;
+    private List<ShopItemConfig> _shopIntemConfig;
     private LevelUpConfig _levelUp;
     private AfkGainConfig _afcGainConfig;
 
@@ -32,6 +34,7 @@ namespace Code.Gameplay.StaticData
       LoadLoots();
       LoadLevelUpRules();
       LoadWindows();
+      LoadShopItems();
       LoadAfkGainConfig();
     }
 
@@ -49,6 +52,16 @@ namespace Code.Gameplay.StaticData
         return config;
 
       throw new Exception($"Loot config for {lootTypeId} was not found");
+    }
+    
+    public ShopItemConfig GetShopItemConfig(ShopItemId shopItemId)
+    {
+      return _shopIntemConfig.FirstOrDefault(x => x.ShopItemId == shopItemId);
+    }
+    
+    public List<ShopItemConfig> GetShopItemConfigs()
+    {
+      return _shopIntemConfig;
     }
 
     public EnchantConfig GetEnchantConfig(EnchantTypeId enchantTypeId)
@@ -105,6 +118,13 @@ namespace Code.Gameplay.StaticData
       _lootById = Resources
         .LoadAll<LootConfig>("Configs/Loot")
         .ToDictionary(x => x.TypeId, x => x);
+    }
+    
+    private void LoadShopItems()
+    {
+      _shopIntemConfig = Resources
+        .LoadAll<ShopItemConfig>("Configs/ShopItems")
+        .ToList();
     }
 
     private void LoadWindows()

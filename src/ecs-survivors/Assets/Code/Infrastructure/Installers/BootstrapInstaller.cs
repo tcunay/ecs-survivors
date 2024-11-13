@@ -28,6 +28,7 @@ using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View.Factory;
+using Code.Meta.UI.GoldHolder.Service;
 using Code.Progress.Provider;
 using Code.Progress.SaveLoad;
 using Zenject;
@@ -157,6 +158,7 @@ namespace Code.Infrastructure.Installers
     private void BindUIServices()
     {
       Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+      Container.Bind<IStorageUIService>().To<StorageUIService>().AsSingle();
     }
 
     private void BindUIFactories()
