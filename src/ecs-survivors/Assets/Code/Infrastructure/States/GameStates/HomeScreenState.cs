@@ -3,6 +3,7 @@ using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.Systems;
 using Code.Meta;
 using Code.Meta.UI.GoldHolder.Service;
+using Code.Meta.UI.Shop.Service;
 
 namespace Code.Infrastructure.States.GameStates
 {
@@ -11,13 +12,19 @@ namespace Code.Infrastructure.States.GameStates
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
     private readonly IStorageUIService _storageUIService;
+    private readonly IShopUIService _shopUIService;
     private HomeScreenFeature _homeScreenFeature;
 
-    public HomeScreenState(ISystemFactory systems, GameContext gameContext, IStorageUIService storageUIService)
+    public HomeScreenState(
+      GameContext gameContext, 
+      ISystemFactory systems,
+      IStorageUIService storageUIService,
+      IShopUIService shopUIService)
     {
       _systems = systems;
       _gameContext = gameContext;
       _storageUIService = storageUIService;
+      _shopUIService = shopUIService;
     }
     
     public void Enter()
@@ -35,6 +42,7 @@ namespace Code.Infrastructure.States.GameStates
     public void Exit()
     {
       _storageUIService.Cleanup();
+      _shopUIService.Cleanup();
       
       _homeScreenFeature.Clear(DestructEntities);
     }
