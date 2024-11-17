@@ -29,6 +29,7 @@ using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View.Factory;
 using Code.Meta.UI.GoldHolder.Service;
+using Code.Meta.UI.Shop;
 using Code.Meta.UI.Shop.Service;
 using Code.Meta.UI.Shop.UIFactory;
 using Code.Progress.Provider;
@@ -125,6 +126,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IEffectFactory>().To<EffectFactory>().AsSingle();
       Container.Bind<IStatusFactory>().To<StatusFactory>().AsSingle();
       Container.Bind<ILootFactory>().To<LootFactory>().AsSingle();
+      Container.Bind<IShopItemFactory>().To<ShopItemFactory>().AsSingle();
     }
 
     private void BindInfrastructureServices()

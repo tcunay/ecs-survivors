@@ -19,7 +19,19 @@ namespace Code.Meta.UI.Shop.Service
             _staticData = staticData;
         }
         
-        public List<ShopItemConfig> GetAvailableShopItems() => new(_availableItems.Values);
+        public List<ShopItemConfig> GetAvailableShopItems() => 
+            new(_availableItems.Values);
+
+        public ShopItemConfig GetConfig(ShopItemId shopItemId) => 
+            _availableItems.GetValueOrDefault(shopItemId);
+
+        public void UpdatePurchasedItem(ShopItemId shopItemId)
+        {
+            _availableItems.Remove(shopItemId);
+            _purchasedItems.Add(shopItemId);
+            
+            ShopChanged?.Invoke();
+        }
 
         public void UpdatePurchasedItems(IEnumerable<ShopItemId> purchasedItems)
         {

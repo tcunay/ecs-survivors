@@ -60,6 +60,7 @@ namespace Code.Meta.UI.Shop
             NoItemsAvailable.SetActive(availableConfigs.Count < 1);
             
             FillItems(availableConfigs);
+            UpdateBoostersState();
         }
 
         protected override void Initialize() => CLoseButton.onClick.AddListener(Close);

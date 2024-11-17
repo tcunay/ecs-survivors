@@ -12,6 +12,7 @@ namespace Code.Meta
 
             Add(systems.Create<RefreshGoldGainBoostSystem>());
             Add(systems.Create<RefreshGoldSystem>());
+            Add(systems.Create<ShopFeature>());
         }
     }
 }
