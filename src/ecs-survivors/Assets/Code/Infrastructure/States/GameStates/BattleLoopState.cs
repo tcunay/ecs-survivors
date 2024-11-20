@@ -5,7 +5,7 @@ using Code.Infrastructure.Systems;
 
 namespace Code.Infrastructure.States.GameStates
 {
-  public class BattleLoopState : IState, IUpdateable
+  public class BattleLoopState : EndOfFrameExitState
   {
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
@@ -17,24 +17,24 @@ namespace Code.Infrastructure.States.GameStates
       _gameContext = gameContext;
     }
     
-    public void Enter()
+    public override void Enter()
     {
       _battleFeature = _systems.Create<BattleFeature>();
       _battleFeature.Initialize();
     }
 
-    public void Update()
+    protected override void OnUpdate()
     {
       _battleFeature.Execute();
       _battleFeature.Cleanup();
     }
 
-    public void Exit()
-    {
+    protected override void ExitOnEndOfFrame()
+    { 
       _battleFeature.Clear(DestructEntities);
       _battleFeature = null;
     }
-
+    
     private void DestructEntities()
     {
       foreach (GameEntity entity in _gameContext.GetEntities())
